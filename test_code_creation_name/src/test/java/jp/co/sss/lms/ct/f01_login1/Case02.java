@@ -45,7 +45,8 @@ public class Case02 {
 		assertEquals("ログイン | LMS", webDriver.getTitle());
 
 		// エビデンス取得
-		getEvidence(this);
+		getEvidence(new Object() {
+		});
 	}
 
 	@Test
@@ -73,7 +74,8 @@ public class Case02 {
 		assertEquals("* ログインに失敗しました。", errMessage);
 
 		// エビデンス取得
-		getEvidence(this);
+		getEvidence(new Object() {
+		});
 	}
 
 }

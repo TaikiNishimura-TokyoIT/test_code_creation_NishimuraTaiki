@@ -44,7 +44,8 @@ public class Case01 {
 		assertEquals("ログイン | LMS", webDriver.getTitle());
 
 		// エビデンス取得
-		getEvidence(this);
+		getEvidence(new Object() {
+		});
 	}
 
 }
