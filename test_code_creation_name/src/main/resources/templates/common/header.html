@@ -26,25 +26,29 @@
 						<!-- <li><a th:href="@{/user/detail}">マイページ</a></li> -->
 						<li><a th:href="@{/attendance/detail}">勤怠</a></li>
 
-						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+								aria-expanded="false">
 								機能
 								<span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu" role="menu">
 								<li th:if="${session.loginUserDto != null && session.loginUserDto.fileShareFlg == 1}">
-									<a th:href="@{/fileshare/list}">ファイル共有</a></li>
+									<a th:href="@{/fileshare/list}">ファイル共有</a>
+								</li>
 								<!-- Task.30 -->
 								<li><a th:href="@{/movie}">動画視聴</a></li>
 								<!-- Task.41 -->
 								<li><a th:href="@{/support}">サポートセンター</a></li>
 								<!-- Task.10 -->
 								<li><a th:href="@{/help}">ヘルプ</a></li>
-							</ul></li>
+							</ul>
+						</li>
 					</th:block>
 
 					<!-- 講師 -->
 					<th:block th:if="${session.loginUserDto.role == '0002'}">
-						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+								aria-expanded="false">
 								研修管理
 								<span class="caret"></span>
 							</a>
@@ -63,9 +67,11 @@
 								<!-- Task.58 -->
 								<li><a th:href="@{/attendance/bulkRegist}">勤怠一括登録</a></li>
 								<li><a href="/lms/evReport/score">評価レポート採点確認</a></li>
-							</ul></li>
+							</ul>
+						</li>
 
-						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+								aria-expanded="false">
 								面談・報告会
 								<span class="caret"></span>
 							</a>
@@ -76,9 +82,11 @@
 								<li><a th:href="@{/presentation/teamList}">チーム編成</a></li>
 								<!-- Task.60 -->
 								<li><a th:href="@{/presentation/list}">成果報告会実施予定</a></li>
-							</ul></li>
+							</ul>
+						</li>
 
-						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+								aria-expanded="false">
 								その他
 								<span class="caret"></span>
 							</a>
@@ -88,12 +96,14 @@
 								<li><a th:href="@{/movie}">動画視聴</a></li>
 								<!-- Task.10 -->
 								<li><a th:href="@{/help}">ヘルプ</a></li>
-							</ul></li>
+							</ul>
+						</li>
 					</th:block>
 
 					<!-- 企業担当者 -->
 					<th:block th:if="${session.loginUserDto.role == '0003'}">
-						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+								aria-expanded="false">
 								研修管理
 								<span class="caret"></span>
 							</a>
@@ -106,9 +116,11 @@
 								<li><a th:href="@{/attendance/list}">勤怠情報確認</a></li>
 								<!-- Task.51 -->
 								<li><a th:href="@{/exam/list}">試験結果確認</a></li>
-							</ul></li>
+							</ul>
+						</li>
 
-						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+								aria-expanded="false">
 								予約
 								<span class="caret"></span>
 							</a>
@@ -117,18 +129,22 @@
 								<li><a th:href="@{/takeOver/list}">引継面談／会場見学 予約</a></li>
 								<!-- Task.60 -->
 								<li><a th:href="@{/presentation/list}">成果報告会出欠</a></li>
-							</ul></li>
+							</ul>
+						</li>
 
-						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+								aria-expanded="false">
 								助成金
 								<span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="/lms/subsidy/company/detail">企業情報編集</a></li>
 								<li><a href="/lms/subsidy/downloaled/type">申請書類DL</a></li>
-							</ul></li>
+							</ul>
+						</li>
 
-						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+								aria-expanded="false">
 								その他
 								<span class="caret"></span>
 							</a>
@@ -137,15 +153,18 @@
 								<li><a th:href="@{/user/list/company}">受講生以外のユーザー</a></li>
 								<li><a th:href="@{/contract/history/list}">契約内容確認</a></li>
 								<li th:if="${session.loginUserDto != null && session.loginUserDto.fileShareFlg == 1}">
-									<a th:href="@{/fileshare/list}">ファイル共有</a></li>
+									<a th:href="@{/fileshare/list}">ファイル共有</a>
+								</li>
 								<!-- Task.10 -->
 								<li><a th:href="@{/help}">ヘルプ</a></li>
-							</ul></li>
+							</ul>
+						</li>
 					</th:block>
 
 					<!-- 管理者 -->
 					<th:block th:if="${session.loginUserDto.role == '0004'}">
-						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+								aria-expanded="false">
 								事務
 								<span class="caret"></span>
 							</a>
@@ -170,9 +189,11 @@
 								<li><a href="/lms/estimate/list/">請求情報ダウンロード</a></li>
 								<li><a href="/lms/evReport/result/list/">評価レポート公開</a></li>
 								<li><a href="/lms/estimate/product/list/">見積もり品マスタ管理</a></li>
-							</ul></li>
+							</ul>
+						</li>
 
-						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+								aria-expanded="false">
 								営業
 								<span class="caret"></span>
 							</a>
@@ -183,9 +204,11 @@
 								<li><a th:href="@{/takeOver/list}">引継面談／会場見学 実施予定</a></li>
 								<!-- Task.60 -->
 								<li><a th:href="@{/presentation/list}">成果報告会実施予定</a></li>
-							</ul></li>
+							</ul>
+						</li>
 
-						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+								aria-expanded="false">
 								運営
 								<span class="caret"></span>
 							</a>
@@ -213,9 +236,11 @@
 								<!-- Task.79 -->
 								<li><a th:href="@{/user/list}">ユーザー管理</a></li>
 								<li><a href="/lms/displayControl/list">データの表示制御</a></li>
-							</ul></li>
+							</ul>
+						</li>
 
-						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+								aria-expanded="false">
 								助成金
 								<span class="caret"></span>
 							</a>
@@ -223,9 +248,11 @@
 								<!-- Task.104 -->
 								<li><a th:href="@{/company/list}">企業情報</a></li>
 								<li><a href="/lms/subsidy/template/list">テンプレート管理</a></li>
-							</ul></li>
+							</ul>
+						</li>
 
-						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+								aria-expanded="false">
 								受講生情報
 								<span class="caret"></span>
 							</a>
@@ -238,9 +265,11 @@
 								<li><a th:href="@{/attendance/list}">勤怠</a></li>
 								<!-- Task.58 -->
 								<li><a th:href="@{/attendance/bulkRegist}">勤怠一括登録</a></li>
-							</ul></li>
+							</ul>
+						</li>
 
-						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+								aria-expanded="false">
 								その他
 								<span class="caret"></span>
 							</a>
@@ -256,7 +285,8 @@
 								<li><a th:href="@{/repair/list}">改修履歴設定</a></li>
 								<!-- Task.10 -->
 								<li><a th:href="@{/help}">ヘルプ</a></li>
-							</ul></li>
+							</ul>
+						</li>
 					</th:block>
 				</ul>
 
@@ -268,9 +298,10 @@
 								<small th:if="${session.infoDto?.newFlg}" class="fc_red b">new</small>
 							</span>
 						</a>
-						<span id="lms-infomation-hide" data-container="body" data-toggle="popover" data-placement="bottom" 
-						title="お知らせ" data-content="" data-html="true"></span></li>
-						
+						<span id="lms-infomation-hide" data-container="body" data-toggle="popover"
+							data-placement="bottom" title="お知らせ" data-content="" data-html="true"></span>
+					</li>
+
 					<!-- Task.02 -->
 					<li th:if="${session.loginUserDto.role == '0001'}"><a th:href="@{/user/detail}">
 							<small th:inline="text">ようこそ[[${session?.loginUserDto?.userName}]]さん</small>
@@ -298,4 +329,5 @@
 		</div>
 	</nav>
 </div>
+
 </html>
