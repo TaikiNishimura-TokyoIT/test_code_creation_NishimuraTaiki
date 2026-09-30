@@ -4,6 +4,7 @@ import static jp.co.sss.lms.ct.util.WebDriverUtils.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -194,11 +195,18 @@ public class Case06 {
 		// 検索結果が表示されるまで待機
 		visibilityTimeout(searchResults, 3);
 
-		// 検索結果の件数を取得
-		int actualCount = webDriver.findElements(searchResults).size();
+		// 検索結果を取得
+		List<WebElement> results = webDriver.findElements(searchResults);
 
-		// 検索結果が2件であることを確認
-		assertEquals(2, actualCount);
+		// 1つ目の検索結果
+		String actualResult1 = results.get(0).getText();
+
+		// 2つ目の検索結果
+		String actualResult2 = results.get(1).getText();
+
+		// それぞれの検索結果をアサーション
+		assertEquals("Q.キャンセル料・途中退校について", actualResult1);
+		assertEquals("Q.研修の申し込みはどのようにすれば良いですか？", actualResult2);
 
 		// ページ下部にスクロール
 		scrollTo(String.valueOf(((JavascriptExecutor) webDriver).executeScript("return document.body.scrollHeight")));
