@@ -163,6 +163,9 @@ public class Case05 {
 		// 新しく開いたタブへ切り替え
 		webDriver.switchTo().window((String) newWindow[1]);
 
+		// 3秒待機
+		pageLoadTimeout(3);
+
 		// Titleの取得とアサーション
 		assertEquals("よくある質問 | LMS", webDriver.getTitle());
 
@@ -195,9 +198,18 @@ public class Case05 {
 		assertEquals("http://localhost:8080/lms/faq?keyword=%E3%82%AD%E3%83%A3%E3%83%B3%E3%82%BB%E3%83%AB",
 				webDriver.getCurrentUrl());
 
-		// エビデンス取得
-		getEvidence(new Object() {
-		});
+		// 検索結果のテーブル
+		By searchResult = By.cssSelector(
+				"table.sortabletable");
+
+		// 検索結果が表示されるまで待機
+		visibilityTimeout(searchResult, 3);
+
+		// 検索結果全体の文字列を取得
+		String actualText = webDriver.findElement(searchResult).getText();
+
+		// 「キャンセル」が含まれているか確認
+		assertTrue(actualText.contains("キャンセル"));
 
 		// ページ下部にスクロール
 		scrollTo(String.valueOf(((JavascriptExecutor) webDriver).executeScript("return document.body.scrollHeight")));
@@ -205,6 +217,10 @@ public class Case05 {
 		// エビデンス取得
 		getEvidence(new Object() {
 		});
+
+		// ページ上部にスクロール
+		scrollTo("0");
+
 	}
 
 	@Test

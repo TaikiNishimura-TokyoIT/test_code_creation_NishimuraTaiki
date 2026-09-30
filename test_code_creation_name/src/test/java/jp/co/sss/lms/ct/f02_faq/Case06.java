@@ -167,15 +167,10 @@ public class Case06 {
 		// Titleの取得とアサーション
 		assertEquals("よくある質問 | LMS", webDriver.getTitle());
 
-		// ページ下部にスクロール
-		scrollTo(String.valueOf(((JavascriptExecutor) webDriver).executeScript("return document.body.scrollHeight")));
-
 		// エビデンス取得
 		getEvidence(new Object() {
 		});
 
-		// ページ上部にスクロール
-		scrollTo("0");
 	}
 
 	@Test
@@ -193,11 +188,17 @@ public class Case06 {
 		// 1つ目のリンクを押下
 		webDriver.findElement(firstCategory).click();
 
-		// URLを確認
-		assertEquals("http://localhost:8080/lms/faq?frequentlyAskedQuestionCategoryId=1", webDriver.getCurrentUrl());
+		// 検索結果の行を取得
+		By searchResults = By.cssSelector("table.sortabletable tbody tr");
 
-		// 3秒待機
-		visibilityTimeout(firstCategory, 3);
+		// 検索結果が表示されるまで待機
+		visibilityTimeout(searchResults, 3);
+
+		// 検索結果の件数を取得
+		int actualCount = webDriver.findElements(searchResults).size();
+
+		// 検索結果が2件であることを確認
+		assertEquals(2, actualCount);
 
 		// ページ下部にスクロール
 		scrollTo(String.valueOf(((JavascriptExecutor) webDriver).executeScript("return document.body.scrollHeight")));
